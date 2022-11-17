@@ -1,3 +1,4 @@
+/* 外部import */
 import { extendTheme } from "@chakra-ui/react";
 
 const theme = extendTheme({

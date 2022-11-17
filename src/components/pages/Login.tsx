@@ -1,3 +1,4 @@
+/* 外部import */
 import { FC, memo } from "react";
 
 export const Login: FC = memo(() => {
