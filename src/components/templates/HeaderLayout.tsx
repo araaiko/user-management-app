@@ -1,7 +1,7 @@
-/* 外部 */
+/* 外部import */
 import { FC, memo, ReactNode } from "react";
 
-/* 内部 */
+/* 内部import */
 import { Header } from "../organisms/layout/Header";
 
 type Props = {

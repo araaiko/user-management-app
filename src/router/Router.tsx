@@ -1,4 +1,4 @@
-// 外部インポート
+/* 外部import */
 import { FC, memo } from "react";
 import {
   createBrowserRouter,
@@ -7,7 +7,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-// 内部ファイルのインポート
+/* 内部import */
 import { Login } from "../components/pages/Login";
 import { Page404 } from "../components/pages/Page404";
 import { homeRoutes } from "./HomeRoutes";

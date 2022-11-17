@@ -1,5 +1,8 @@
+/* 外部import */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+
+/* 内部import */
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';

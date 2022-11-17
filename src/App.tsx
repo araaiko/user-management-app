@@ -1,8 +1,11 @@
+/* 外部import */
 import React from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
-import theme from "./theme/theme";
 
+/* 内部import */
+import theme from "./theme/theme";
 import { Router } from "./router/Router";
+
 
 function App() {
   return (
