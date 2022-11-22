@@ -6,10 +6,14 @@ import { useNavigate } from "react-router-dom";
 /* 内部import */
 import { MenuIconButton } from "../../atoms/button/MenuIconButton";
 import { MenuDrawer } from "../../molecules/MenuDrawer";
+import { useLoginUser } from "../../../hooks/useLoginUser";
+import { useMessage } from "../../../hooks/useMessage";
 
 export const Header: FC = memo(() => {
   const navigate = useNavigate();
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { setLoginUser } = useLoginUser();
+  const { showMessage } = useMessage();
 
   const onClickHome = useCallback((): void => {
     navigate("/home");
@@ -22,6 +26,15 @@ export const Header: FC = memo(() => {
   const onClickSetting = useCallback((): void => {
     navigate("/home/setting");
   }, [navigate]);
+
+  const onClickLogout = useCallback((): void => {
+    setLoginUser(null);
+    showMessage({
+      title: "ログアウトしました",
+      status: "warning",
+    });
+    navigate("/");
+  }, [setLoginUser, navigate, showMessage]);
 
   return (
     <>
@@ -54,8 +67,11 @@ export const Header: FC = memo(() => {
           <Box pr={4}>
             <Link onClick={onClickUserManagement}>ユーザー一覧</Link>
           </Box>
-          <Box>
+          <Box pr={4}>
             <Link onClick={onClickSetting}>設定</Link>
+          </Box>
+          <Box>
+            <Link onClick={onClickLogout}>ログアウト</Link>
           </Box>
         </Flex>
 
@@ -70,6 +86,7 @@ export const Header: FC = memo(() => {
         onClickHome={onClickHome}
         onClickUserManagement={onClickUserManagement}
         onClickSetting={onClickSetting}
+        onClickLogout={onClickLogout}
       />
     </>
   );

@@ -28,9 +28,12 @@ export const UserManagement: FC = memo(() => {
     getUsers();
   }, []);
 
-  const onClickUser = useCallback((id: number) => {
-    onSelectUser({ id: id, users: users, onOpen: onOpen });
-  }, [users]);
+  const onClickUser = useCallback(
+    (id: number) => {
+      onSelectUser({ id: id, users: users, onOpen: onOpen });
+    },
+    [users]
+  );
 
   return (
     <HeaderLayout>
@@ -54,7 +57,12 @@ export const UserManagement: FC = memo(() => {
         </Wrap>
       )}
 
-      <UserDetailModal isOpen={isOpen} onClose={onClose} user={selectedUser} />
+      <UserDetailModal
+        isOpen={isOpen}
+        onClose={onClose}
+        user={selectedUser}
+        isAdmin={loginUser?.isAdmin}
+      />
     </HeaderLayout>
   );
 });
